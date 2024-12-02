@@ -1,0 +1,43 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Результаты
+{% endblock %}
+
+{% block content %}
+
+    {% if player.role == 'A' %}
+<p> Вы были Участником А </p>
+        <p>
+            Вы передали Участнику Б {{ group.sent_amount }}.
+            Участник Б вернул Вам {{ group.sent_back_amount }}.
+        </p>
+        <p>
+            Сначала у Вас было {{ Constants.endowment }},
+            Вы передали {{ group.sent_amount }},
+            Вам вернули {{ group.sent_back_amount }}.
+            Итого теперь у Вас есть:
+            {{ Constants.endowment }} - {{ group.sent_amount }} + {{ group.sent_back_amount }} = <strong>{{ player.payoff }}</strong>.
+        </p>
+    {% else %}
+<p> Вы были Участником Б </p>
+        <p>
+            Участник А передал Вам {{ group.sent_amount }}.
+            Эта сумма была утроена, так что Вы получили {{ tripled_amount }}.
+            Вы вернули {{ group.sent_back_amount }}.
+        </p>
+        <p>
+            Вы получили {{ tripled_amount }},
+            решили вернуть {{ group.sent_back_amount }},
+            теперь у Вас есть:
+            {{ tripled_amount }} - {{ group.sent_back_amount }} = <strong>{{ player.payoff }}</strong>.
+        </p>
+        
+    {% endif %}
+
+    <p>{% next_button %}</p>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}

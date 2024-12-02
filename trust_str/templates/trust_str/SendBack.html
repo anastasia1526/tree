@@ -1,0 +1,34 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Ваш выбор
+{% endblock %}
+
+{% block content %}
+<p>  <strong>Если вы будете участником Б.</strong> </p>
+ Выберети сколько вы отправите обратно участнику A в зависимости от того, сколько он передал вам:
+<table class="table">
+    <thead>
+        <tr> <th> А передал </th> <th> У вас будет </th> <th> Сколько вы передадите обратно </th> 
+        </tr>
+    </thead>
+     <tbody> 
+      <tr> <td> {{sendA.1}} </td> <td>{{capB.1}} </td><td>{{ form.q_sent_back_1 }}</td> </tr> 
+      <tr> <td> {{sendA.2}} </td> <td>{{capB.2}} </td><td>{{ form.q_sent_back_2 }}</td> </tr> 
+      <tr> <td> {{sendA.3}} </td> <td>{{capB.3}} </td><td>{{ form.q_sent_back_3 }}</td> </tr> 
+      <tr> <td> {{sendA.4}} </td> <td>{{capB.4}} </td><td>{{ form.q_sent_back_4 }}</td> </tr> 
+      <tr> <td> {{sendA.5}} </td> <td>{{capB.5}} </td><td>{{ form.q_sent_back_5 }}</td> </tr> 
+      <tr> <td> {{sendA.6}} </td> <td>{{capB.6}} </td><td>{{ form.q_sent_back_6 }}</td> </tr> 
+      <tr> <td> {{sendA.7}} </td> <td>{{capB.7}} </td><td>{{ form.q_sent_back_7 }}</td> </tr> 
+      <tr> <td> {{sendA.8}} </td> <td>{{capB.8}} </td><td>{{ form.q_sent_back_8 }}</td> </tr> 
+      <tr> <td> {{sendA.9}} </td> <td>{{capB.9}} </td><td>{{ form.q_sent_back_9 }}</td> </tr> 
+      <tr> <td> {{sendA.10}} </td> <td>{{capB.10}} </td><td>{{ form.q_sent_back_10 }}</td> </tr> 
+</table>
+
+    {{ chat }}
+
+    <p>{% next_button %}</p>
+    {% include Constants.instructions_template %}
+
+{% endblock %}

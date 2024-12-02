@@ -1,0 +1,25 @@
+{% extends "global/Page.html" %}
+{% load otree %}
+
+{% block title %}
+    Ваш выбор
+{% endblock %}
+
+{% block content %}
+
+    <p>
+    <strong>Если вы будете участником А.</strong> То у Вас будет {{Constants.endowment}}. Сколько из этой суммы в этом случае Вы хотите передать участнику Б?
+    </p>
+    {% formfield player.q_sent label="Пожалуйста, введите число от 0 до 10:" %}
+    <p>
+
+    {{ chat }}
+
+    <p>
+
+    {% next_button %}
+    </p>
+
+    {% include Constants.instructions_template %}
+
+{% endblock %}
